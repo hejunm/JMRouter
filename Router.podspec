@@ -26,7 +26,7 @@ Pod::Spec.new do |s|
   #   * Finally, don't worry about the indent, CocoaPods strips it!
   s.description  = "iOS 路由框架" 
 
-  s.homepage     = "http://EXAMPLE/Router"
+  s.homepage     = "https://github/hejunm/Router"
   # s.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
 
 
@@ -87,7 +87,7 @@ Pod::Spec.new do |s|
   #
 
   s.source_files  = "Source/**/*.{h,m,swift}"
-  s.public_header_files = "Classes/**/*.h"
+  s.public_header_files = "Source/**/*.h"
 
   # ――― Resources ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
