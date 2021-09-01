@@ -86,8 +86,8 @@ Pod::Spec.new do |s|
   #  Not including the public_header_files will make all headers public.
   #
 
-  s.source_files  = "Source/**/*.{h,m,swift}"
-  s.public_header_files = "Source/**/*.h"
+  s.source_files  = "Router/Source/**/*.{h,m,swift}"
+  s.public_header_files = "Router/Source/**/*.h"
 
   # ――― Resources ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #

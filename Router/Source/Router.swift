@@ -9,7 +9,17 @@
 import UIKit
 
 public class Router: NSObject {
-    public static func routerTo(path: String) {
 
+    public static func regist(key: String) {
+        // key -> block
     }
+
+    public static func goto(deeplink: String) {
+        /**
+         
+         */
+    }
+
+
+
 }
