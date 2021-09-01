@@ -15,9 +15,7 @@ public class Router: NSObject {
     }
 
     public static func goto(deeplink: String) {
-        /**
-         
-         */
+        
     }
 
 

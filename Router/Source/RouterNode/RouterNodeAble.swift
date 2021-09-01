@@ -37,19 +37,34 @@ protocol:
 
  */
 
-import UIKit
+import Foundation
 
-protocol RouterNodeDefineAble {
+protocol RouterNodeAble {
+    associatedtype ParamType: RouterNodeBaseParam
+    
     static var identifier: String? { get }
     static var urlPattern: String? { get }
+    
+    static func push(param: ParamType?)
 }
 
-extension RouterNodeDefineAble {
-    static var identifier: String? {
-        return nil
-    }
-
-    static var urlPattern: String? {
-        return nil
+extension RouterNodeAble {
+//    static var identifier: String? {
+//        return nil
+//    }
+//
+//    static var urlPattern: String? {
+//        return nil
+//    }
+    
+    static func push(param: ParamType?) {
+        /// TODO: 执行跳转
+        /// TODO: 跳转结果？
     }
 }
+
+public class RouterNodeBaseParam {
+    var url: String?
+    var urlParameters: [String: Any]?
+}
+

@@ -287,20 +287,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-RouterExample/Pods-RouterExample-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Router/Router.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-RouterExample/Pods-RouterExample-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Router.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-RouterExample/Pods-RouterExample-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RouterExample/Pods-RouterExample-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RouterExample/Pods-RouterExample-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		576F9254EEA2744B61A787A1 /* [CP] Check Pods Manifest.lock */ = {
