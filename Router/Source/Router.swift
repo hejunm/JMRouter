@@ -10,14 +10,16 @@ import UIKit
 
 public class Router: NSObject {
 
-    public static func regist(key: String) {
-        // key -> block
+    static let share = Router()
+
+    func register() {
+        // identifirexx --> Router
     }
+}
 
-    public static func goto(deeplink: String) {
-        
+/// RouterNodeModele
+extension Router {
+    static var search: RouterNodeSearchModule.Type {
+        return RouterNodeSearchModule.self
     }
-
-
-
 }

@@ -10,8 +10,4 @@ import Foundation
 public class RouterNodeSearchModule {
     static let searchResult = RouterNodeSearchResult.self
     static let searchQuery = RouterNodeSearchQuery.self
-    
-    
-    static func test() {
-    }
 }

@@ -49,15 +49,19 @@ protocol RouterNodeAble {
 }
 
 extension RouterNodeAble {
-//    static var identifier: String? {
-//        return nil
-//    }
-//
-//    static var urlPattern: String? {
-//        return nil
-//    }
+    static var identifier: String? {
+        return nil
+    }
+    static var urlPattern: String? {
+        return nil
+    }
     
     static func push(param: ParamType?) {
+        guard let identifier = self.identifier  else {
+            assertionFailure("identifier must not be nil")
+            return
+        }
+        print(identifier)
         /// TODO: 执行跳转
         /// TODO: 跳转结果？
     }
