@@ -1,0 +1,6 @@
+framework module RouterNodeDefinition {
+  umbrella header "RouterNodeDefinition-umbrella.h"
+
+  export *
+  module * { export * }
+}

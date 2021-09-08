@@ -1,9 +1,9 @@
 {
-  "name": "Router",
+  "name": "RouterNodeDefinition",
   "version": "0.0.1",
-  "summary": "A short description of Router.",
+  "summary": "A short description of RouterNodeDefinition.",
   "description": "iOS 路由框架",
-  "homepage": "https://github/hejunm/Router",
+  "homepage": "https://github/hejunm/RouterNodeDefinition",
   "license": {
     "type": "BSD 3-Clause",
     "file": "LICENSE.TXT"
@@ -12,7 +12,7 @@
     "jmhe": "1143024986@qq.com"
   },
   "source": {
-    "git": "https://github/hejunm/Router.git",
+    "git": "https://github/hejunm/RouterNodeDefinition.git",
     "tag": "0.0.1"
   },
   "source_files": "Source/**/*.{h,m,swift}",
@@ -21,6 +21,11 @@
     "Foundation",
     "UIKit"
   ],
+  "dependencies": {
+    "Router": [
+
+    ]
+  },
   "platforms": {
     "osx": null,
     "ios": null,

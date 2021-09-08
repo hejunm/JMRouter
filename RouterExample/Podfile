@@ -1,5 +1,7 @@
 use_frameworks! 
 
 target 'RouterExample' do
-  pod 'Router', :path => '../'
+  pod 'Router', :path => '../Router'
+  pod 'RouterNodeDefinition', :path => '../RouterNodeDefinition'
+  pod 'SearchKit', :path => '../SearchKit'
 end

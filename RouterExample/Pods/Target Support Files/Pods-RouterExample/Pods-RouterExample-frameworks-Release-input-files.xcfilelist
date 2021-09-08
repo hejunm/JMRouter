@@ -1,2 +1,4 @@
 ${PODS_ROOT}/Target Support Files/Pods-RouterExample/Pods-RouterExample-frameworks.sh
 ${BUILT_PRODUCTS_DIR}/Router/Router.framework
+${BUILT_PRODUCTS_DIR}/RouterNodeDefinition/RouterNodeDefinition.framework
+${BUILT_PRODUCTS_DIR}/SearchKit/SearchKit.framework

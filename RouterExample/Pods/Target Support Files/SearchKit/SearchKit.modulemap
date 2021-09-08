@@ -1,0 +1,6 @@
+framework module SearchKit {
+  umbrella header "SearchKit-umbrella.h"
+
+  export *
+  module * { export * }
+}
