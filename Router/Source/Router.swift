@@ -13,13 +13,5 @@ public class Router: NSObject {
     static let share = Router()
 
     func register() {
-        // identifirexx --> Router
-    }
-}
-
-/// RouterNodeModele
-extension Router {
-    static var search: RouterNodeSearchModule.Type {
-        return RouterNodeSearchModule.self
     }
 }

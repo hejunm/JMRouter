@@ -7,27 +7,21 @@
 
 import Foundation
 
-protocol RouterDestinationAble {
-    associatedtype RouterParamType: RouterNodeBaseParam
+public protocol RouterDestinationAble {
     associatedtype RouterNodeType: RouterNodeAble
 
-    /// 关联 routerNode --> RouterDestination
-    /// - Parameter node: 路由节点
-    static func register(node: RouterNodeType)
+    static func createParamWith(urlParams:[String: Any]?) -> RouterNodeType.ParamType?
 
-    /// 使用deeplink中的参数， 创建参数对象
-    /// - Parameter urlParams: deeplink中的参数
-    static func createParamWith(urlParams:[String: Any]?) -> RouterParamType
-
-    /// 创建路由目的对象（viewController、service）
-    /// - Parameter param: 路由参数对象
-    static func builderDestination(param: RouterParamType) -> AnyObject
-
+    static func createDestination(param: RouterNodeType.ParamType?) -> AnyObject?
 }
 
-extension RouterDestinationAble {
-    static func register(node: RouterNodeType) {
-
+public extension RouterDestinationAble {
+    static func createParamWith(urlParams:[String: Any]?) -> RouterNodeType.ParamType? {
+        return nil
+    }
+    
+    static func createDestination(param: RouterNodeType.ParamType?) -> AnyObject? {
+        return nil
     }
 }
 

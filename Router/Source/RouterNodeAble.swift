@@ -39,36 +39,23 @@ protocol:
 
 import Foundation
 
-protocol RouterNodeAble {
+public protocol RouterNodeAble {
     associatedtype ParamType: RouterNodeBaseParam
-    
     static var identifier: String? { get }
     static var urlPattern: String? { get }
-    
-    static func push(param: ParamType?)
 }
 
-extension RouterNodeAble {
-    static var identifier: String? {
+public extension RouterNodeAble {
+    static var identifier: String? {  // 类型？
         return nil
     }
     static var urlPattern: String? {
         return nil
     }
-    
-    static func push(param: ParamType?) {
-        guard let identifier = self.identifier  else {
-            assertionFailure("identifier must not be nil")
-            return
-        }
-        print(identifier)
-        /// TODO: 执行跳转
-        /// TODO: 跳转结果？
-    }
 }
 
-public class RouterNodeBaseParam {
-    var url: String?
-    var urlParameters: [String: Any]?
+open class RouterNodeBaseParam: NSObject {
+    public var url: String?
+    public var urlParameters: [String: Any]?
 }
 
