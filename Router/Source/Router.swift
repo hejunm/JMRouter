@@ -12,6 +12,5 @@ public class Router: NSObject {
 
     static let share = Router()
 
-    func register() {
-    }
+    
 }

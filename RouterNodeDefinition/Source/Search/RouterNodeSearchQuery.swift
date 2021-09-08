@@ -9,8 +9,8 @@ import Foundation
 import Router
 
 public class RouterNodeSearchQueryParam: RouterNodeBaseParam {
-    var source: String?         //  来源
-    var targetType: String?     //  目标页面
+    public var source: String?         //  来源
+    public var targetType: String?     //  目标页面
 }
 
 public class RouterNodeSearchQuery: RouterNodeAble {

@@ -11,15 +11,17 @@ import RouterNodeDefinition
 
 extension RouterNodeSearchQuery: RouterDestinationAble {
     public typealias RouterNodeType = RouterNodeSearchQuery
-    
-    public static func createParamWith(urlParams: [String : Any]?) -> RouterNodeSearchQueryParam? {
-        return RouterNodeSearchQueryParam()
+
+    public static func createParamWith(paramDic: [String : Any]?) -> RouterNodeSearchQueryParam {
+        let params = RouterNodeSearchQueryParam()
+        params.source = paramDic?["source"] as? String
+        params.targetType = paramDic?["target_type"] as? String
+        return params
     }
-    
-    public static func createDestination(param: RouterNodeSearchQueryParam?) -> AnyObject? {
-        let vc = UIViewController()
+
+    public static func createDestination(param: RouterNodeSearchQueryParam) -> AnyObject? {
+        let vc = SearchQueryVC()
+        vc.params = param
         return vc
     }
-    
-    
 }

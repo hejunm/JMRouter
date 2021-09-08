@@ -46,16 +46,17 @@ public protocol RouterNodeAble {
 }
 
 public extension RouterNodeAble {
-    static var identifier: String? {  // 类型？
-        return nil
-    }
     static var urlPattern: String? {
         return nil
     }
 }
 
 open class RouterNodeBaseParam: NSObject {
-    public var url: String?
-    public var urlParameters: [String: Any]?
+
+    public var paramDic: [String: Any]?
+
+    required public override init() {
+        super.init()
+    }
 }
 
