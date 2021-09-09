@@ -34,12 +34,11 @@ protocol:
     通过protocol 找到路由节点
     创建Context， 将该对象传给调用方， 调用方赋值
     创建Destination 参数为Context
-
  */
 
 import Foundation
 
-public protocol RouterNodeAble {
+public protocol RouterNodeAble: AnyObject {
     associatedtype ParamType: RouterNodeBaseParam
     static var identifier: String { get }
     static var urlPattern: String? { get }

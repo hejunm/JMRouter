@@ -8,12 +8,14 @@
 
 import UIKit
 import Router
+import RouterNodeDefinition
 
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.view.backgroundColor = UIColor.white
+        Router.share.regist(node: RouterNodeSearchQuery.self)
     }
 
 

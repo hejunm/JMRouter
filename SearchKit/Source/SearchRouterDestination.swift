@@ -21,7 +21,7 @@ extension RouterNodeSearchQuery: RouterDestinationAble {
 
     public static func createDestination(param: RouterNodeSearchQueryParam) -> AnyObject? {
         let vc = SearchQueryVC()
-        vc.params = param
+        vc.params = param        
         return vc
     }
 }

@@ -3,12 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		583DE6CB268F64A90052D0CF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 583DE6CA268F64A90052D0CF /* AppDelegate.swift */; };
-		583DE6CD268F64A90052D0CF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 583DE6CC268F64A90052D0CF /* SceneDelegate.swift */; };
 		583DE6CF268F64A90052D0CF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 583DE6CE268F64A90052D0CF /* ViewController.swift */; };
 		583DE6D2268F64A90052D0CF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 583DE6D0268F64A90052D0CF /* Main.storyboard */; };
 		583DE6D4268F64AA0052D0CF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 583DE6D3268F64AA0052D0CF /* Assets.xcassets */; };
@@ -38,7 +37,6 @@
 /* Begin PBXFileReference section */
 		583DE6C7268F64A90052D0CF /* RouterExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RouterExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		583DE6CA268F64A90052D0CF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		583DE6CC268F64A90052D0CF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		583DE6CE268F64A90052D0CF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		583DE6D1268F64A90052D0CF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		583DE6D3268F64AA0052D0CF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -116,7 +114,6 @@
 			isa = PBXGroup;
 			children = (
 				583DE6CA268F64A90052D0CF /* AppDelegate.swift */,
-				583DE6CC268F64A90052D0CF /* SceneDelegate.swift */,
 				583DE6CE268F64A90052D0CF /* ViewController.swift */,
 				583DE6D0268F64A90052D0CF /* Main.storyboard */,
 				583DE6D3268F64AA0052D0CF /* Assets.xcassets */,
@@ -329,7 +326,6 @@
 			files = (
 				583DE6CF268F64A90052D0CF /* ViewController.swift in Sources */,
 				583DE6CB268F64A90052D0CF /* AppDelegate.swift in Sources */,
-				583DE6CD268F64A90052D0CF /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -434,7 +430,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -488,7 +484,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -505,6 +501,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = RouterExample/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -523,6 +520,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = RouterExample/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
