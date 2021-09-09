@@ -16,6 +16,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.white
         Router.share.regist(node: RouterNodeSearchQuery.self)
+
     }
 
 

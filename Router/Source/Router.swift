@@ -20,25 +20,28 @@ import JLRoutes
 public class Router: NSObject {
     public static let share = Router()
     var nodes: [String: AnyClass] = [:]
-}
 
-// register
-extension Router {
     public func regist<T>(node: T.Type) where T: RouterNodeAble {
         guard nodes[node.identifier] == nil else {
             assertionFailure("\(node.identifier) has already registered, cannot register again")
             return
         }
-        
         nodes[node.identifier] = node
-        
-        if let urlPattern = node.urlPattern {
-            
+
+        guard let urlPattern = node.urlPattern else { return }
+
+        JLRoutes.global().addRoute(urlPattern) { [weak self] params in
+            guard self != nil else { return false }
+            return true
         }
     }
-}
 
-// router
-extension Router {
-    
+    func createDestinationWith<T>(node: T.Type, param: [String: Any]? = nil) -> AnyObject?  where T: RouterNodeAble {
+        let paramModel = node.createParamWith(paramDic: param)
+        return node.createDestination(param: paramModel)
+    }
+
+    func createDestinationWith<T>(node: T.Type, param: T.ParamType) -> AnyObject? where T: RouterNodeAble {
+        return node.createDestination(param: param)
+    }
 }

@@ -16,6 +16,7 @@ public protocol RouterDestinationAble {
 }
 
 public extension RouterDestinationAble {
+    
     static func createParamWith(paramDic: [String: Any]?) -> RouterNodeType.ParamType {
         let param = RouterNodeType.ParamType()
         param.paramDic = paramDic

@@ -38,7 +38,7 @@ protocol:
 
 import Foundation
 
-public protocol RouterNodeAble: AnyObject {
+public protocol RouterNodeAble: AnyObject, RouterDestinationAble where RouterNodeType == Self {
     associatedtype ParamType: RouterNodeBaseParam
     static var identifier: String { get }
     static var urlPattern: String? { get }

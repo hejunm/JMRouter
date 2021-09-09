@@ -418,7 +418,7 @@ NSString *const kJLRoutePatternKey = @"JLRoutePattern";
 NSString *const kJLRouteURLKey = @"JLRouteURL";
 NSString *const kJLRouteSchemeKey = @"JLRouteScheme";
 NSString *const kJLRouteWildcardComponentsKey = @"JLRouteWildcardComponents";
-NSString *const kJLRoutesGlobalRoutesScheme = @"JLRoutesGlobalRoutesScheme";
+NSString *const kJLRoutesGlobalRoutesScheme = @"zhizi";
 NSString *const kJLRouteNamespaceKey = @"JLRouteScheme";
 NSString *const kJLRoutesGlobalNamespaceKey = @"JLRoutesGlobalRoutesScheme";
 
