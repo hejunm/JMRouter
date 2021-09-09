@@ -41,7 +41,7 @@ import Foundation
 
 public protocol RouterNodeAble {
     associatedtype ParamType: RouterNodeBaseParam
-    static var identifier: String? { get }
+    static var identifier: String { get }
     static var urlPattern: String? { get }
 }
 

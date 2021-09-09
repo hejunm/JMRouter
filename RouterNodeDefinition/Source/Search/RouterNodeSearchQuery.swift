@@ -16,6 +16,6 @@ public class RouterNodeSearchQueryParam: RouterNodeBaseParam {
 public class RouterNodeSearchQuery: RouterNodeAble {
     public typealias ParamType = RouterNodeSearchQueryParam
     
-    public static let identifier: String? = "route_node_search_query"
+    public static let identifier = "route_node_search_query"
     public static let urlPattern: String? = "search_query/"
 }

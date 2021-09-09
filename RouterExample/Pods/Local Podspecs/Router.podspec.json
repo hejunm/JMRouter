@@ -21,6 +21,11 @@
     "Foundation",
     "UIKit"
   ],
+  "dependencies": {
+    "JLRoutes": [
+
+    ]
+  },
   "platforms": {
     "osx": null,
     "ios": null,

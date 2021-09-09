@@ -1,16 +1,21 @@
 PODS:
-  - Router (0.0.1)
+  - JLRoutes (2.1)
+  - Router (0.0.1):
+    - JLRoutes
   - RouterNodeDefinition (0.0.1):
     - Router
   - SearchKit (0.0.1):
     - RouterNodeDefinition
 
 DEPENDENCIES:
+  - JLRoutes (from `../JLRoutes`)
   - Router (from `../Router`)
   - RouterNodeDefinition (from `../RouterNodeDefinition`)
   - SearchKit (from `../SearchKit`)
 
 EXTERNAL SOURCES:
+  JLRoutes:
+    :path: "../JLRoutes"
   Router:
     :path: "../Router"
   RouterNodeDefinition:
@@ -19,10 +24,11 @@ EXTERNAL SOURCES:
     :path: "../SearchKit"
 
 SPEC CHECKSUMS:
-  Router: 1d969c89a6af2450d93bc61323066dacfe18d24b
+  JLRoutes: ca01527f1bd92e3016699c0f2be084d7ee11e01a
+  Router: 4b9a7f1e50111283f8dd1bbbfeb5a26e0091c288
   RouterNodeDefinition: a2ca115f4962d0ca593225225628631b1c912b9a
   SearchKit: 880440e6c9d0d99d1cbad0f72ebe1eed8d78d56a
 
-PODFILE CHECKSUM: da5ac6dfd9979141a9cfb1f0613932527af6e836
+PODFILE CHECKSUM: 0dedf7f3e55f28aabf6e5ee0814dae5a6c76ebb7
 
 COCOAPODS: 1.7.1

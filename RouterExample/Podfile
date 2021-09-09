@@ -4,4 +4,5 @@ target 'RouterExample' do
   pod 'Router', :path => '../Router'
   pod 'RouterNodeDefinition', :path => '../RouterNodeDefinition'
   pod 'SearchKit', :path => '../SearchKit'
+  pod 'JLRoutes', :path => '../JLRoutes'
 end
