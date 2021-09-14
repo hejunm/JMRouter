@@ -38,24 +38,87 @@ protocol:
 
 import Foundation
 
-public protocol RouterNodeAble: AnyObject, RouterDestinationAble where RouterNodeType == Self {
-    associatedtype ParamType: RouterNodeBaseParam
+
+
+//public extension RouterNodeAble {
+//    static var urlPattern: String? {
+//        return nil
+//    }
+//}
+
+//// MARK - Destination
+//public protocol RouterNodeDestinationAble {
+//    associatedtype ParamType: RouterNodeBaseParam
+//    static func createDestination(param: ParamType) -> AnyObject?
+//}
+
+
+
+
+//public extension RouterNodeDestinationAble {
+//    static func createParamWith(paramDic: [String: Any]?) -> RouterNodeType.ParamType {
+//        let param = RouterNodeType.ParamType()
+//        param.paramDic = paramDic
+//        return param
+//    }
+//
+//    static func createDestination(param: RouterNodeType.ParamType) -> AnyObject? {
+//        return nil
+//    }
+//}
+
+open class RouterNodeParamBase {
+    public var paramDic: [String: Any]?
+    required public init() {}
+}
+
+public protocol RouterNodeDefineAble: AnyObject {
+    associatedtype ParamType: RouterNodeParamBase
     static var identifier: String { get }
     static var urlPattern: String? { get }
 }
 
-public extension RouterNodeAble {
-    static var urlPattern: String? {
+public protocol RouterNodeImpAble: AnyObject {
+    associatedtype ParamType: RouterNodeParamBase
+    
+    static func register<NodeDefineType: RouterNodeDefineAble>(define: NodeDefineType.Type) where NodeDefineType.ParamType == ParamType
+    
+    static func createDestination(param: ParamType) -> AnyObject?
+}
+
+extension RouterNodeImpAble {
+    public static func register<NodeDefineType: RouterNodeDefineAble>(define: NodeDefineType.Type) where NodeDefineType.ParamType == ParamType {
+        Router.share.regist(define: define, imp: self)
+    }
+    
+    public static func createDestination(param: ParamType) -> AnyObject? {
         return nil
     }
 }
 
-open class RouterNodeBaseParam: NSObject {
-
-    public var paramDic: [String: Any]?
-
-    required public override init() {
-        super.init()
-    }
+public class RouterNodeImpBase {
+    
 }
 
+
+//open class RouterNodeImpBase: RouterNodeImpAble {
+//    public typealias ParamType = RouterNodeParamBase
+//}
+
+
+// MARK: search
+
+public class RouterNodeParamSearchQuery: RouterNodeParamBase {
+    public var source: String?         //  来源
+    public var targetType: String?     //  目标页面
+}
+
+public class RouterNodeDefineSearchQuery: RouterNodeDefineAble {
+    public typealias ParamType = RouterNodeParamSearchQuery
+    public static let identifier = "route_node_search_query"
+    public static let urlPattern: String? = "/search_query"
+}
+
+public class RouterNodeImpSearchQuery: RouterNodeImpAble {
+    public typealias ParamType = RouterNodeParamSearchQuery
+}

@@ -7,21 +7,21 @@
 
 import UIKit
 import Router
-import RouterNodeDefinition
-
-extension RouterNodeSearchQuery: RouterDestinationAble {
-    public typealias RouterNodeType = RouterNodeSearchQuery
-
-    public static func createParamWith(paramDic: [String : Any]?) -> RouterNodeSearchQueryParam {
-        let params = RouterNodeSearchQueryParam()
-        params.source = paramDic?["source"] as? String
-        params.targetType = paramDic?["target_type"] as? String
-        return params
-    }
-
-    public static func createDestination(param: RouterNodeSearchQueryParam) -> AnyObject? {
-        let vc = SearchQueryVC()
-        vc.params = param        
-        return vc
-    }
-}
+//import RouterNodeDefinition
+//
+//extension RouterNodeSearchQuery: RouterNodeDestinationAble {
+//    public typealias RouterNodeType = RouterNodeSearchQuery
+//
+//    public static func createParamWith(paramDic: [String : Any]?) -> RouterNodeSearchQueryParam {
+//        let params = RouterNodeSearchQueryParam()
+//        params.source = paramDic?["source"] as? String
+//        params.targetType = paramDic?["target_type"] as? String
+//        return params
+//    }
+//
+//    public static func createDestination(param: RouterNodeSearchQueryParam) -> AnyObject? {
+//        let vc = SearchQueryVC()
+//        vc.params = param        
+//        return vc
+//    }
+//}

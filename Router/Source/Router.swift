@@ -15,33 +15,47 @@ deeplink、 代码实现？
 
 
 import UIKit
-import JLRoutes
+
+
 
 public class Router: NSObject {
+    
+    typealias ParamFactoryBlock = (RouterNodeParamBase) -> ()
+    typealias DestinationFactoryBlock = ((ParamFactoryBlock)?) -> AnyObject?
+    
     public static let share = Router()
-    var nodes: [String: AnyClass] = [:]
+    var nodeDefines = [String: DestinationFactoryBlock]()
 
-    public func regist<T>(node: T.Type) where T: RouterNodeAble {
-        guard nodes[node.identifier] == nil else {
-            assertionFailure("\(node.identifier) has already registered, cannot register again")
+    public func regist<NodeDefineType: RouterNodeDefineAble, NodeImpType: RouterNodeImpAble>(define: NodeDefineType.Type, imp: NodeImpType.Type) where NodeDefineType.ParamType == NodeImpType.ParamType {
+        
+        guard nodeDefines[define.identifier] == nil else {
+            assertionFailure("\(define.identifier) has already registered, cannot register again")
             return
         }
-        nodes[node.identifier] = node
-
-        guard let urlPattern = node.urlPattern else { return }
-
-        JLRoutes.global().addRoute(urlPattern) { [weak self] params in
-            guard self != nil else { return false }
-            return true
+        
+        let block: DestinationFactoryBlock = { (paramBlock: ParamFactoryBlock?) -> AnyObject? in
+            let param = NodeDefineType.ParamType()
+            paramBlock?(param)
+            return imp.createDestination(param: param)
         }
+        
+        nodeDefines[define.identifier] = block
+        
     }
-
-    func createDestinationWith<T>(node: T.Type, param: [String: Any]? = nil) -> AnyObject?  where T: RouterNodeAble {
-        let paramModel = node.createParamWith(paramDic: param)
-        return node.createDestination(param: paramModel)
-    }
-
-    func createDestinationWith<T>(node: T.Type, param: T.ParamType) -> AnyObject? where T: RouterNodeAble {
-        return node.createDestination(param: param)
+    
+    public func perform<NodeDefineType>(nodeDefine: NodeDefineType.Type, paramFactory: ((NodeDefineType.ParamType)->())?) -> AnyObject? where NodeDefineType: RouterNodeDefineAble {
+        
+        guard let destinationFactoryBlock = nodeDefines[nodeDefine.identifier] else {
+            return nil
+        }
+        
+        var paramFactoryBlock: ParamFactoryBlock?
+        if paramFactory != nil {
+            guard let paramFactory = paramFactory as? ParamFactoryBlock else {
+                return nil
+            }
+            paramFactoryBlock = paramFactory
+        }
+        return destinationFactoryBlock(paramFactoryBlock)
     }
 }

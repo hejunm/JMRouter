@@ -8,17 +8,21 @@
 
 import UIKit
 import Router
-import RouterNodeDefinition
+//import RouterNodeDefinition
 
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor.white
-        Router.share.regist(node: RouterNodeSearchQuery.self)
+        self.view.backgroundColor = UIColor.green
 
+//        Router.share.regist(nodeDefine: RouterNodeDefineSearchQuery.self, nodeImp: RouterNodeImpSearchQuery.self)
+        
+//        Router.share.perform(nodeDefine: RouterNodeDefineSearchQuery.self) { param in
+//            
+//        }
+        
+        RouterNodeImpSearchQuery.register(define: RouterNodeDefineSearchQuery.self)
     }
-
-
 }
 

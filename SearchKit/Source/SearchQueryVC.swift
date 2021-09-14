@@ -10,12 +10,8 @@ import RouterNodeDefinition
 
 class SearchQueryVC: UIViewController {
 
-    var params: RouterNodeSearchQueryParam?
-
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.red
-
-        self.title = params?.source
     }
 }
