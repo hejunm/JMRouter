@@ -8,4 +8,13 @@
 import Foundation
 import Router
 
+public class RouterNodeParamSearchQuery: RouterNodeParamBase {
+    public var source: String?         //  来源
+    public var targetType: String?     //  目标页面
+}
 
+public class RouterNodeDefineSearchQuery: RouterNodeDefineAble {
+    public typealias ParamType = RouterNodeParamSearchQuery
+    public static let identifier = "route_node_search_query"
+    public static let urlPattern: String? = "/search_query"
+}

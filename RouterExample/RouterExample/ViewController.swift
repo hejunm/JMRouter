@@ -8,7 +8,9 @@
 
 import UIKit
 import Router
-//import RouterNodeDefinition
+import RouterNodeDefinition
+import SearchKit
+
 
 class ViewController: UIViewController {
 
@@ -16,22 +18,15 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.green
 
-//        Router.share.regist(nodeDefine: RouterNodeDefineSearchQuery.self, nodeImp: RouterNodeImpSearchQuery.self)
-        
-//        Router.share.perform(nodeDefine: RouterNodeDefineSearchQuery.self) { param in
-//            
-//        }
-        
-        RouterNodeImpSearchQuery.register(define: RouterNodeDefineSearchQuery.self)
-        
+        SearchQueryRouter.register()
+
         let vc = Router.share.perform(define: RouterNodeDefineSearchQuery.self) { param in
             param.source = "zhizi"
         }
-        
-        
         if let vc = vc as? UIViewController {
             self.navigationController?.pushViewController(vc, animated: true)
         }
+
     }
 }
 

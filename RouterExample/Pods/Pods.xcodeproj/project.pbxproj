@@ -42,7 +42,6 @@
 		BC495B8AEBA0515F319A106AC1A3B6C9 /* JLRRouteResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 4BA95132919420E2B7926C453DB5116B /* JLRRouteResponse.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C5F84573618FDBD7F098E2CF3563FBAC /* RouterNodeDefinition-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F78D98737669752E3584537F11057DF1 /* RouterNodeDefinition-dummy.m */; };
 		C87DD4AD0F27ACB5B8DA0A168DB4B096 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34882B227903B2938127C32393F5D20F /* Foundation.framework */; };
-		CF2EDBBD434401C2449ED010B5111489 /* RouterNodeSearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9186063437219D2E009F6ABF1E26FBA9 /* RouterNodeSearchResult.swift */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		D43A54814973D314987EFC7B2B677E3C /* SearchKit-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F06D0179A20CCC9FD50F8D67BEF62807 /* SearchKit-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DCD235161216D32FB8CE63FE49DF3A59 /* JLRRouteDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = 62F5C3E0B316F5BEFF08210F57D77A63 /* JLRRouteDefinition.m */; };
 		DD3D9B566557FBF1C4D3719DD1801C3C /* RouterNodeAble.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5BBF320727FDC5BBEC27FF802D55BD /* RouterNodeAble.swift */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
@@ -148,7 +147,6 @@
 		80F8FE7E63E459E517A8036A1D8956D5 /* JLRoutes-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "JLRoutes-dummy.m"; sourceTree = "<group>"; };
 		8443EFD65F05808A9A3A5781E5491CD2 /* RouterNodeDefinition-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "RouterNodeDefinition-Info.plist"; sourceTree = "<group>"; };
 		899C4B42FE4A363D5B54C679A1378361 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
-		9186063437219D2E009F6ABF1E26FBA9 /* RouterNodeSearchResult.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RouterNodeSearchResult.swift; path = Source/Search/RouterNodeSearchResult.swift; sourceTree = "<group>"; };
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		A16BD0E836020577C0793D983CFC1D94 /* JLRRouteHandler.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JLRRouteHandler.h; path = JLRoutes/JLRRouteHandler.h; sourceTree = "<group>"; };
 		A46A19006E1B4740C23C3214C58FFFD1 /* Router.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Router.xcconfig; sourceTree = "<group>"; };
@@ -397,7 +395,6 @@
 			isa = PBXGroup;
 			children = (
 				3DCAF500E870F442E4320E6872CC6255 /* RouterNodeSearchQuery.swift */,
-				9186063437219D2E009F6ABF1E26FBA9 /* RouterNodeSearchResult.swift */,
 				6E7DF011C73D8AF51BA50AF5B8514B39 /* Pod */,
 				3367DC8B2E48381A9D46EB88DFC6DDE9 /* Support Files */,
 			);
@@ -687,7 +684,6 @@
 			files = (
 				C5F84573618FDBD7F098E2CF3563FBAC /* RouterNodeDefinition-dummy.m in Sources */,
 				6854A9CD03BB1BDC9BACE3E8440AC09B /* RouterNodeSearchQuery.swift in Sources */,
-				CF2EDBBD434401C2449ED010B5111489 /* RouterNodeSearchResult.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
