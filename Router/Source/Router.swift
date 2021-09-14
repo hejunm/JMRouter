@@ -20,8 +20,7 @@ import UIKit
 
 public class Router: NSObject {
     
-    typealias ParamFactoryBlock = (RouterNodeParamBase) -> ()
-    typealias DestinationFactoryBlock = ((ParamFactoryBlock)?) -> AnyObject?
+    typealias DestinationFactoryBlock = (RouterNodeParamBase?) -> AnyObject?
     
     public static let share = Router()
     var nodeDefines = [String: DestinationFactoryBlock]()
@@ -29,33 +28,22 @@ public class Router: NSObject {
     public func regist<NodeDefineType: RouterNodeDefineAble, NodeImpType: RouterNodeImpAble>(define: NodeDefineType.Type, imp: NodeImpType.Type) where NodeDefineType.ParamType == NodeImpType.ParamType {
         
         guard nodeDefines[define.identifier] == nil else {
+            print("\(define.identifier) has already registered, cannot register again")
             assertionFailure("\(define.identifier) has already registered, cannot register again")
             return
         }
-        
-        let block: DestinationFactoryBlock = { (paramBlock: ParamFactoryBlock?) -> AnyObject? in
-            let param = NodeDefineType.ParamType()
-            paramBlock?(param)
-            return imp.createDestination(param: param)
+        nodeDefines[define.identifier] = { (param: RouterNodeParamBase?) -> AnyObject? in
+            return imp.createDestination(param: param as? NodeImpType.ParamType)
         }
-        
-        nodeDefines[define.identifier] = block
-        
+        print("注册成功 \(nodeDefines)")
     }
     
-    public func perform<NodeDefineType>(nodeDefine: NodeDefineType.Type, paramFactory: ((NodeDefineType.ParamType)->())?) -> AnyObject? where NodeDefineType: RouterNodeDefineAble {
-        
-        guard let destinationFactoryBlock = nodeDefines[nodeDefine.identifier] else {
+    public func perform<NodeDefineType>(define: NodeDefineType.Type, paramFactory: ((NodeDefineType.ParamType)->())?) -> AnyObject? where NodeDefineType: RouterNodeDefineAble {
+        guard let destinationFactoryBlock = nodeDefines[define.identifier] else {
             return nil
         }
-        
-        var paramFactoryBlock: ParamFactoryBlock?
-        if paramFactory != nil {
-            guard let paramFactory = paramFactory as? ParamFactoryBlock else {
-                return nil
-            }
-            paramFactoryBlock = paramFactory
-        }
-        return destinationFactoryBlock(paramFactoryBlock)
+        let param = NodeDefineType.ParamType()
+        paramFactory?(param)
+        return destinationFactoryBlock(param)
     }
 }

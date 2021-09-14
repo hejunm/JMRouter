@@ -83,16 +83,12 @@ public protocol RouterNodeImpAble: AnyObject {
     
     static func register<NodeDefineType: RouterNodeDefineAble>(define: NodeDefineType.Type) where NodeDefineType.ParamType == ParamType
     
-    static func createDestination(param: ParamType) -> AnyObject?
+    static func createDestination(param: ParamType?) -> AnyObject?
 }
 
 extension RouterNodeImpAble {
     public static func register<NodeDefineType: RouterNodeDefineAble>(define: NodeDefineType.Type) where NodeDefineType.ParamType == ParamType {
         Router.share.regist(define: define, imp: self)
-    }
-    
-    public static func createDestination(param: ParamType) -> AnyObject? {
-        return nil
     }
 }
 
@@ -121,4 +117,11 @@ public class RouterNodeDefineSearchQuery: RouterNodeDefineAble {
 
 public class RouterNodeImpSearchQuery: RouterNodeImpAble {
     public typealias ParamType = RouterNodeParamSearchQuery
+    
+    public static func createDestination(param: RouterNodeParamSearchQuery?) -> AnyObject? {
+        let vc = UIViewController()
+        vc.title = param?.source
+        vc.view.backgroundColor = UIColor.red
+        return vc
+    }
 }

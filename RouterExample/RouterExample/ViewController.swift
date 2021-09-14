@@ -23,6 +23,15 @@ class ViewController: UIViewController {
 //        }
         
         RouterNodeImpSearchQuery.register(define: RouterNodeDefineSearchQuery.self)
+        
+        let vc = Router.share.perform(define: RouterNodeDefineSearchQuery.self) { param in
+            param.source = "zhizi"
+        }
+        
+        
+        if let vc = vc as? UIViewController {
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
     }
 }
 
