@@ -9,11 +9,13 @@ import UIKit
 import Router
 import RouterNodeDefinition
 
-public class SearchQueryRouter: RouterNodeImpAble {
+@objc(SearchKitSearchQueryRouter)
+public class SearchQueryRouter: NSObject, RouterNodeImpAble {
     public typealias ParamType = RouterNodeParamSearchQuery
 
-    public static func register() {
-        self.register(define: RouterNodeDefineSearchQuery.self)
+    @objc
+    public static func regist() {
+        self.regist(define: RouterNodeDefineSearchQuery.self)
     }
 
     public static func createDestination(param: RouterNodeParamSearchQuery?) -> AnyObject? {

@@ -18,8 +18,6 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.green
 
-        SearchQueryRouter.register()
-
         let vc = Router.share.perform(define: RouterNodeDefineSearchQuery.self) { param in
             param.source = "zhizi"
         }

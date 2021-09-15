@@ -23,10 +23,14 @@
 		3824864F67855CC1D672199D3A0F3576 /* Router.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7A228DDD61BBA401EC703346467572B /* Router.framework */; };
 		39E7638A52E3721754B30FB8C711A1FB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34882B227903B2938127C32393F5D20F /* Foundation.framework */; };
 		3D4217623DD0F50375F6278B01FD0230 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A55D18F1B5DEA38757A473FABD908D9 /* UIKit.framework */; };
-		3E3828EF63792B853A010A631DECA29A /* SearchRouterDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92CC7360D525F332F24BA7143139D38 /* SearchRouterDestination.swift */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		3E3828EF63792B853A010A631DECA29A /* SearchRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92CC7360D525F332F24BA7143139D38 /* SearchRouter.swift */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		3F4BA701FB71EC05034BAFD7BE42D6A3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34882B227903B2938127C32393F5D20F /* Foundation.framework */; };
 		4317F03A36E76F7AC1D8BB6F56E2EBC7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34882B227903B2938127C32393F5D20F /* Foundation.framework */; };
 		4ED6616154B29ED3C73F5E0943D829FA /* RouterNodeDefinition.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 241C65D191DA22DD0C2E113739428EEC /* RouterNodeDefinition.framework */; };
+		58CD01C926F2510300A47DEA /* SearchRouterRegister.m in Sources */ = {isa = PBXBuildFile; fileRef = 58CD01C826F2510300A47DEA /* SearchRouterRegister.m */; };
+		58CDEE3726F239F200A47DEA /* RouterRuntime.h in Headers */ = {isa = PBXBuildFile; fileRef = 58CDEE3526F239F200A47DEA /* RouterRuntime.h */; };
+		58CDEE3826F239F200A47DEA /* RouterRuntime.m in Sources */ = {isa = PBXBuildFile; fileRef = 58CDEE3626F239F200A47DEA /* RouterRuntime.m */; };
+		58CDEE3C26F23D8A00A47DEA /* SearchRouterRegister.h in Headers */ = {isa = PBXBuildFile; fileRef = 58CDEE3A26F23D8A00A47DEA /* SearchRouterRegister.h */; };
 		6560749608744DB2C748C452FADCBBF1 /* Pods-RouterExample-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CE6DD3ECB7CB1600C679EB75D45AF7 /* Pods-RouterExample-dummy.m */; };
 		6854A9CD03BB1BDC9BACE3E8440AC09B /* RouterNodeSearchQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCAF500E870F442E4320E6872CC6255 /* RouterNodeSearchQuery.swift */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		6ADEB118EC03247C2BC75E13FB3CC645 /* JLRRouteRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 38F0CADDE482733B814E605A86F0C328 /* JLRRouteRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -128,6 +132,10 @@
 		50FFBAE87DAAA5D19C6D04413ED5E6D3 /* JLRoutes.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = JLRoutes.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		538B8668BFA7BEC485A7525A67DDABCF /* SearchKit.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = SearchKit.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		543F2DF5E174BA1A1539E39C1170FE94 /* JLRRouteRequest.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JLRRouteRequest.m; path = JLRoutes/JLRRouteRequest.m; sourceTree = "<group>"; };
+		58CD01C826F2510300A47DEA /* SearchRouterRegister.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchRouterRegister.m; sourceTree = "<group>"; };
+		58CDEE3526F239F200A47DEA /* RouterRuntime.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RouterRuntime.h; sourceTree = "<group>"; };
+		58CDEE3626F239F200A47DEA /* RouterRuntime.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RouterRuntime.m; sourceTree = "<group>"; };
+		58CDEE3A26F23D8A00A47DEA /* SearchRouterRegister.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchRouterRegister.h; sourceTree = "<group>"; };
 		5E33BABD34C0A4735713108213685498 /* Router.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Router.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F466C5B4323840795FBCB017D86BD66 /* JLRRouteResponse.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JLRRouteResponse.m; path = JLRoutes/JLRRouteResponse.m; sourceTree = "<group>"; };
 		5F6272262116FC7724F496E3118C1F62 /* JLRParsingUtilities.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JLRParsingUtilities.h; path = JLRoutes/JLRParsingUtilities.h; sourceTree = "<group>"; };
@@ -160,7 +168,7 @@
 		E50EEC44BC952788C3E626783CB64C91 /* JLRoutes.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = JLRoutes.xcconfig; sourceTree = "<group>"; };
 		E7A228DDD61BBA401EC703346467572B /* Router.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Router.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E87E8815B91DF73E6130FA041610FB67 /* JLRParsingUtilities.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JLRParsingUtilities.m; path = JLRoutes/JLRParsingUtilities.m; sourceTree = "<group>"; };
-		E92CC7360D525F332F24BA7143139D38 /* SearchRouterDestination.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SearchRouterDestination.swift; path = Source/SearchRouterDestination.swift; sourceTree = "<group>"; };
+		E92CC7360D525F332F24BA7143139D38 /* SearchRouter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SearchRouter.swift; sourceTree = "<group>"; };
 		F00F68C0518043449958D1597E78C5CA /* Pods-RouterExample-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-RouterExample-acknowledgements.plist"; sourceTree = "<group>"; };
 		F06D0179A20CCC9FD50F8D67BEF62807 /* SearchKit-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SearchKit-umbrella.h"; sourceTree = "<group>"; };
 		F58755E3F55D94C2941B42F39DC17E03 /* Pods-RouterExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-RouterExample.debug.xcconfig"; sourceTree = "<group>"; };
@@ -251,6 +259,16 @@
 				D0F3C1690550418E81DF97FB17E2AF3E /* SearchKit.framework */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		58CD01CA26F2511000A47DEA /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				E92CC7360D525F332F24BA7143139D38 /* SearchRouter.swift */,
+				58CDEE3A26F23D8A00A47DEA /* SearchRouterRegister.h */,
+				58CD01C826F2510300A47DEA /* SearchRouterRegister.m */,
+			);
+			path = Router;
 			sourceTree = "<group>";
 		};
 		683125F37D68976D5678E26280060975 /* Frameworks */ = {
@@ -363,6 +381,8 @@
 			children = (
 				A83290DE553EB31101AB5C2802748C40 /* Router.swift */,
 				AE5BBF320727FDC5BBEC27FF802D55BD /* RouterNodeAble.swift */,
+				58CDEE3526F239F200A47DEA /* RouterRuntime.h */,
+				58CDEE3626F239F200A47DEA /* RouterRuntime.m */,
 				09FE48646273E7A52EC8D2CF994C9003 /* Pod */,
 				6EB76895F7E157C2DEEBA8D2751A31D9 /* Support Files */,
 			);
@@ -437,7 +457,7 @@
 			isa = PBXGroup;
 			children = (
 				2803DBE2918783B6F1D3A30270444729 /* SearchQueryVC.swift */,
-				E92CC7360D525F332F24BA7143139D38 /* SearchRouterDestination.swift */,
+				58CD01CA26F2511000A47DEA /* Router */,
 				897B1705D108963F2789D79C1D952CC0 /* Pod */,
 				68859B8389CE378341110A4C49BEAF1A /* Support Files */,
 			);
@@ -476,7 +496,9 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				58CDEE3726F239F200A47DEA /* RouterRuntime.h in Headers */,
 				AEC48102A18C9A633E0D27FE5316663E /* Router-umbrella.h in Headers */,
+				58CDEE3C26F23D8A00A47DEA /* SearchRouterRegister.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -693,7 +715,7 @@
 			files = (
 				869D59DA81445D0E9940DE0B85DF3BB0 /* SearchKit-dummy.m in Sources */,
 				25D941420AB7EDA51F43C1C67630D1E1 /* SearchQueryVC.swift in Sources */,
-				3E3828EF63792B853A010A631DECA29A /* SearchRouterDestination.swift in Sources */,
+				3E3828EF63792B853A010A631DECA29A /* SearchRouter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -704,6 +726,8 @@
 				7E66859E46E884AE9DC11A714524C849 /* Router-dummy.m in Sources */,
 				17A134C8FE61424917CC833B68025132 /* Router.swift in Sources */,
 				DD3D9B566557FBF1C4D3719DD1801C3C /* RouterNodeAble.swift in Sources */,
+				58CDEE3826F239F200A47DEA /* RouterRuntime.m in Sources */,
+				58CD01C926F2510300A47DEA /* SearchRouterRegister.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

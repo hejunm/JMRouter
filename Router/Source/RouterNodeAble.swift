@@ -56,15 +56,15 @@ public protocol RouterNodeDefineAble: AnyObject {
 public protocol RouterNodeImpAble: AnyObject {
     associatedtype ParamType: RouterNodeParamBase
 
-    static func register()
+    static func regist()
 
-    static func register<NodeDefineType: RouterNodeDefineAble>(define: NodeDefineType.Type) where NodeDefineType.ParamType == ParamType
+    static func regist<NodeDefineType: RouterNodeDefineAble>(define: NodeDefineType.Type) where NodeDefineType.ParamType == ParamType
     
     static func createDestination(param: ParamType?) -> AnyObject?
 }
 
 extension RouterNodeImpAble {
-    public static func register<NodeDefineType: RouterNodeDefineAble>(define: NodeDefineType.Type) where NodeDefineType.ParamType == ParamType {
+    public static func regist<NodeDefineType: RouterNodeDefineAble>(define: NodeDefineType.Type) where NodeDefineType.ParamType == ParamType {
         Router.share.regist(define: define, imp: self)
     }
 }
