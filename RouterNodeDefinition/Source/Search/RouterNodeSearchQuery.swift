@@ -16,6 +16,4 @@ public class RouterNodeParamSearchQuery: RouterNodeParamBase {
 public class RouterNodeDefineSearchQuery: RouterNodeDefineAble {
     public typealias ParamType = RouterNodeParamSearchQuery
     public typealias ReturnType = UIViewController
-    public static let identifier = "route_node_search_query"
-    public static let urlPattern: String? = "/search_query"
 }

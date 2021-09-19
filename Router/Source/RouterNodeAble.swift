@@ -52,6 +52,14 @@ public protocol RouterNodeDefineAble: AnyObject {
     static var urlPattern: String? { get }
 }
 
+public extension RouterNodeDefineAble {
+    static var identifier: String {
+        NSStringFromClass(self)
+    }
+    static var urlPattern: String? {
+        return nil
+    }
+}
 
 // MARK: Imp
 public protocol RouterNodeImpAble: AnyObject {

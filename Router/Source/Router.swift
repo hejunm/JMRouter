@@ -23,7 +23,7 @@ public class Router: NSObject {
     var nodeDefines = [String: DestinationFactoryBlock]()
 
     public func regist<NodeDefineType, NodeImpType: RouterNodeImpAble>(define: NodeDefineType.Type, imp: NodeImpType.Type) where NodeDefineType == NodeImpType.NodeDefineType {
-        
+        print("zhizi Router regist:\(define.identifier) imp:\(imp)")
         guard nodeDefines[define.identifier] == nil else {
             assertionFailure("\(define.identifier) has already registered, cannot register again")
             return
