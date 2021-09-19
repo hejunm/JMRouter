@@ -6,13 +6,6 @@
 //  Copyright © 2021 wulixiwa. All rights reserved.
 //
 
-
-/**
-注册：  id --> RouterNodeType
-获取： RouterDestinationAble?  传参、返回值
-deeplink、 代码实现？
- */
-
 import UIKit
 
 public class Router: NSObject {
