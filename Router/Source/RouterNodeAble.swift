@@ -47,6 +47,7 @@ open class RouterNodeParamBase {
 
 public protocol RouterNodeDefineAble: AnyObject {
     associatedtype ParamType: RouterNodeParamBase
+    associatedtype ReturnType
     static var identifier: String { get }
     static var urlPattern: String? { get }
 }
@@ -54,17 +55,17 @@ public protocol RouterNodeDefineAble: AnyObject {
 
 // MARK: Imp
 public protocol RouterNodeImpAble: AnyObject {
-    associatedtype ParamType: RouterNodeParamBase
+    associatedtype NodeDefineType: RouterNodeDefineAble
 
     static func regist()
 
-    static func regist<NodeDefineType: RouterNodeDefineAble>(define: NodeDefineType.Type) where NodeDefineType.ParamType == ParamType
+    static func regist(define: NodeDefineType.Type)
     
-    static func createDestination(param: ParamType?) -> AnyObject?
+    static func createDestination(param: NodeDefineType.ParamType?) -> NodeDefineType.ReturnType?
 }
 
 extension RouterNodeImpAble {
-    public static func regist<NodeDefineType: RouterNodeDefineAble>(define: NodeDefineType.Type) where NodeDefineType.ParamType == ParamType {
+    public static func regist(define: NodeDefineType.Type) {
         Router.share.regist(define: define, imp: self)
     }
 }

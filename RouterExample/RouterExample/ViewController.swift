@@ -21,10 +21,9 @@ class ViewController: UIViewController {
         let vc = Router.share.perform(define: RouterNodeDefineSearchQuery.self) { param in
             param.source = "zhizi"
         }
-        if let vc = vc as? UIViewController {
+        if let vc = vc {
             self.navigationController?.pushViewController(vc, animated: true)
         }
-
     }
 }
 

@@ -15,13 +15,12 @@
 #include <mach-o/ldsyms.h>
 
 NSArray<NSString *>* BHReadConfiguration(char *sectionName,const struct mach_header *mhp);
-static void dyld_callback(const struct mach_header *mhp, intptr_t vmaddr_slide)
-{
+static void dyld_callback(const struct mach_header *mhp, intptr_t vmaddr_slide) {
     NSArray *mods = BHReadConfiguration(RouterNodeImpSectName, mhp);
     for (NSString *modName in mods) {
         Class cls;
         if (modName) {
-            NSLog(@"zhizi %@", modName);
+            NSLog(@"zhizi 检索到路由节点 %@", modName);
             cls = NSClassFromString(modName);
             if (cls) {
                 #pragma clang diagnostic push
@@ -29,8 +28,9 @@ static void dyld_callback(const struct mach_header *mhp, intptr_t vmaddr_slide)
                 SEL selector = NSSelectorFromString(@"regist");
                 if ([cls respondsToSelector:selector]) {
                     [cls performSelector:selector];
+                    NSLog(@"zhizi %@ 注册成功", modName);
                 } else {
-                    NSLog(@"zhizi 没有register");
+                    NSLog(@"zhizi %@ 注册失败", modName);
                 }
                 #pragma clang diagnostic pop
             }

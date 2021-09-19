@@ -17,29 +17,30 @@ import UIKit
 
 public class Router: NSObject {
     
-    typealias DestinationFactoryBlock = (RouterNodeParamBase) -> AnyObject?
+    typealias DestinationFactoryBlock = (RouterNodeParamBase) -> Any?
     
     public static let share = Router()
     var nodeDefines = [String: DestinationFactoryBlock]()
 
-    public func regist<NodeDefineType: RouterNodeDefineAble, NodeImpType: RouterNodeImpAble>(define: NodeDefineType.Type, imp: NodeImpType.Type) where NodeDefineType.ParamType == NodeImpType.ParamType {
+    public func regist<NodeDefineType, NodeImpType: RouterNodeImpAble>(define: NodeDefineType.Type, imp: NodeImpType.Type) where NodeDefineType == NodeImpType.NodeDefineType {
         
         guard nodeDefines[define.identifier] == nil else {
             assertionFailure("\(define.identifier) has already registered, cannot register again")
             return
         }
-        let block = { (param: RouterNodeParamBase) -> AnyObject? in
-            return imp.createDestination(param: param as? NodeImpType.ParamType)
+        let block = { (param: RouterNodeParamBase) -> NodeDefineType.ReturnType? in
+            return imp.createDestination(param: param as? NodeDefineType.ParamType)
         }
         nodeDefines[define.identifier] = block
     }
     
-    public func perform<NodeDefineType>(define: NodeDefineType.Type, paramFactory: ((NodeDefineType.ParamType)->())?) -> AnyObject? where NodeDefineType: RouterNodeDefineAble {
+    public func perform<NodeDefineType: RouterNodeDefineAble>(define: NodeDefineType.Type, paramFactory: ((NodeDefineType.ParamType)->())?) -> NodeDefineType.ReturnType? {
         guard let destinationFactoryBlock = nodeDefines[define.identifier] else {
             return nil
         }
         let param = NodeDefineType.ParamType()
         paramFactory?(param)
-        return destinationFactoryBlock(param)
+        return destinationFactoryBlock(param) as? NodeDefineType.ReturnType
     }
 }
+ 

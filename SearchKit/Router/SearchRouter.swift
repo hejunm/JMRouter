@@ -11,14 +11,14 @@ import RouterNodeDefinition
 
 @objc(SearchKitSearchQueryRouter)
 public class SearchQueryRouter: NSObject, RouterNodeImpAble {
-    public typealias ParamType = RouterNodeParamSearchQuery
+    public typealias NodeDefineType = RouterNodeDefineSearchQuery
 
     @objc
     public static func regist() {
         self.regist(define: RouterNodeDefineSearchQuery.self)
     }
 
-    public static func createDestination(param: RouterNodeParamSearchQuery?) -> AnyObject? {
+    public static func createDestination(param: RouterNodeParamSearchQuery?) -> UIViewController? {
         let vc = SearchQueryVC()
         vc.title = param?.source
         vc.view.backgroundColor = UIColor.red
