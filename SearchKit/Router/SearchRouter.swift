@@ -19,9 +19,17 @@ public class SearchQueryRouter: NSObject, RouterNodeImpAble {
     }
 
     public static func createDestination(param: RouterNodeParamSearchQuery?) -> UIViewController? {
+        if let paramsDict = param?.paramDic {
+            setup(param, with: paramsDict)
+        }
         let vc = SearchQueryVC()
         vc.title = param?.source
         vc.view.backgroundColor = UIColor.red
         return vc
+    }
+
+    // deeplink中解析出的dict参数 --> 对象中参数
+    static func setup(_ param: RouterNodeParamSearchQuery?,  with dict: [String: Any]) {
+        param?.source = dict["source"] as? String
     }
 }

@@ -11,17 +11,21 @@ import Router
 import RouterNodeDefinition
 import SearchKit
 
-
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.green
 
-        let vc = Router.share.perform(define: RouterNodeDefineSearchQuery.self) { param in
-            param.source = "zhizi"
-        }
-        if let vc = vc {
+//        let vc = Router.share.perform(define: RouterNodeDefineSearchQuery.self) { param in
+//            param.source = "zhizi"
+//        }
+//        if let vc = vc as? UIViewController {
+//            self.navigationController?.pushViewController(vc, animated: true)
+//        }
+
+        let vc = Router.share.perform(url: URL(string: "zhizi://search/query?source=zhizi"))
+        if let vc = vc as? UIViewController {
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }

@@ -28,9 +28,7 @@ static void dyld_callback(const struct mach_header *mhp, intptr_t vmaddr_slide) 
                 SEL selector = NSSelectorFromString(@"regist");
                 if ([cls respondsToSelector:selector]) {
                     [cls performSelector:selector];
-                    NSLog(@"zhizi Router 注册成功 %@", modName);
                 } else {
-                    NSLog(@"zhizi Router 注册失败 %@", modName);
                 }
                 #pragma clang diagnostic pop
             }
