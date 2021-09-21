@@ -20,21 +20,30 @@ public class Router: NSObject {
     var jlRouterLastMatchResult: JLRouterLastMatchResult?
 
     public func regist<NodeDefineType, NodeImpType: RouterNodeImpAble>(define: NodeDefineType.Type, imp: NodeImpType.Type) where NodeDefineType == NodeImpType.NodeDefineType {
-        guard nodeDefines[define.identifier] == nil else {
-            assertionFailure("\(define.identifier) routerID has already registered, cannot register again")
-            return
-        }
-        let block = { (param: RouterNodeParamBase) -> NodeDefineType.ReturnType? in
-            return imp.createDestination(param: param as? NodeDefineType.ParamType)
-        }
-        nodeDefines[define.identifier] = block
-        print("zhizi Router regist NodeID: \(define.identifier) imp:\(imp)")
-
+        regist(routerID: define.identifier, imp: imp)
         if let urlPattern = define.urlPattern {
             regist(urlPattern: urlPattern, imp: imp)
         }
     }
-    
+}
+
+// MARK:  Router By Code
+extension Router {
+    private func regist<NodeImpType: RouterNodeImpAble>(routerID: String, imp: NodeImpType.Type) {
+        guard !routerID.isEmpty else {
+            return
+        }
+        guard nodeDefines[routerID] == nil else {
+            assertionFailure("\(routerID) routerID has already registered, cannot register again")
+            return
+        }
+        let block = { (param: RouterNodeParamBase) -> NodeImpType.NodeDefineType.ReturnType? in
+            return imp.createDestination(param: param as? NodeImpType.NodeDefineType.ParamType)
+        }
+        nodeDefines[routerID] = block
+        print("zhizi Router regist NodeID: \(routerID) imp:\(imp)")
+    }
+
     public func perform<NodeDefineType: RouterNodeDefineAble>(define: NodeDefineType.Type, paramFactory: ((NodeDefineType.ParamType)->())?) -> NodeDefineType.ReturnType? {
         guard let destinationFactoryBlock = nodeDefines[define.identifier] else {
             return nil
@@ -45,14 +54,12 @@ public class Router: NSObject {
     }
 }
 
+// MARK: Router By deeplink
 extension Router {
 
-    public func regist<NodeImpType: RouterNodeImpAble>(urlPattern: String, imp: NodeImpType.Type) {
+    private func regist<NodeImpType: RouterNodeImpAble>(urlPattern: String, imp: NodeImpType.Type) {
         let (scheme, urlPattern) = Router.getSchemeAndURLPattern(origin: urlPattern)
-        guard !urlPattern.isEmpty else {
-            return
-        }
-
+        guard !urlPattern.isEmpty else { return }
         let jlRouter = scheme.isEmpty ? JLRoutes.global() : JLRoutes.init(forScheme: scheme)
         jlRouter.addRoute(urlPattern) { [weak self] params in
             guard let self = self else { return false }
@@ -68,9 +75,7 @@ extension Router {
     }
 
     public func perform(url: URL?) -> Any? {
-        guard let url = url else {
-            return nil
-        }
+        guard let url = url else { return nil }
         self.jlRouterLastMatchResult = nil
         defer {
             self.jlRouterLastMatchResult = nil
