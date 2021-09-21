@@ -11,16 +11,15 @@ import JLRoutes
 
 public class Router: NSObject {
 
-    typealias DestinationFactoryBlock = (RouterNodeParamBase) -> Any?
-    
     public static let share = Router()
 
-    var nodeDefines = [String: DestinationFactoryBlock]()
+    typealias DestinationFactoryBlock = (RouterNodeParamBase) -> Any?
+    var id2ImpMap = [String: DestinationFactoryBlock]()
 
     var jlRouterLastMatchResult: JLRouterLastMatchResult?
 
     public func regist<NodeDefineType, NodeImpType: RouterNodeImpAble>(define: NodeDefineType.Type, imp: NodeImpType.Type) where NodeDefineType == NodeImpType.NodeDefineType {
-        regist(routerID: define.identifier, imp: imp)
+        regist(nodeID: define.identifier, imp: imp)
         if let urlPattern = define.urlPattern {
             regist(urlPattern: urlPattern, imp: imp)
         }
@@ -29,23 +28,23 @@ public class Router: NSObject {
 
 // MARK:  Router By Code
 extension Router {
-    private func regist<NodeImpType: RouterNodeImpAble>(routerID: String, imp: NodeImpType.Type) {
-        guard !routerID.isEmpty else {
+    private func regist<NodeImpType: RouterNodeImpAble>(nodeID: String, imp: NodeImpType.Type) {
+        guard !nodeID.isEmpty else {
             return
         }
-        guard nodeDefines[routerID] == nil else {
-            assertionFailure("\(routerID) routerID has already registered, cannot register again")
+        guard id2ImpMap[nodeID] == nil else {
+            assertionFailure("\(nodeID) routerID has already registered, cannot register again")
             return
         }
         let block = { (param: RouterNodeParamBase) -> NodeImpType.NodeDefineType.ReturnType? in
             return imp.createDestination(param: param as? NodeImpType.NodeDefineType.ParamType)
         }
-        nodeDefines[routerID] = block
-        print("zhizi Router regist NodeID: \(routerID) imp:\(imp)")
+        id2ImpMap[nodeID] = block
+        print("zhizi Router regist NodeID: \(nodeID) imp:\(imp)")
     }
 
     public func perform<NodeDefineType: RouterNodeDefineAble>(define: NodeDefineType.Type, paramFactory: ((NodeDefineType.ParamType)->())?) -> NodeDefineType.ReturnType? {
-        guard let destinationFactoryBlock = nodeDefines[define.identifier] else {
+        guard let destinationFactoryBlock = id2ImpMap[define.identifier] else {
             return nil
         }
         let param = NodeDefineType.ParamType()
