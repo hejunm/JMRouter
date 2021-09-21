@@ -14,6 +14,7 @@ public class Router: NSObject {
     public static let share = Router()
 
     typealias DestinationFactoryBlock = (RouterNodeParamBase) -> Any?
+    
     var id2ImpMap = [String: DestinationFactoryBlock]()
 
     var jlRouterLastMatchResult: JLRouterLastMatchResult?
@@ -28,6 +29,7 @@ public class Router: NSObject {
 
 // MARK:  Router By Code
 extension Router {
+
     private func regist<NodeImpType: RouterNodeImpAble>(nodeID: String, imp: NodeImpType.Type) {
         guard !nodeID.isEmpty else {
             return

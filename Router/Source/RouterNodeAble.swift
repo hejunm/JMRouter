@@ -3,12 +3,10 @@
 //  Pods-RouterExample
 //
 //  Created by wulixiwa on 2021/7/4.
-//  路由节点，业务方在自己组件中完成注册
 
 import Foundation
 
 // MARK: Define
-
 open class RouterNodeParamBase {
     public var paramDic: [String: Any]?
     required public init() {}
@@ -25,6 +23,7 @@ public extension RouterNodeDefineAble {
     static var identifier: String {
         NSStringFromClass(self)
     }
+    
     static var urlPattern: String? {
         return nil
     }
@@ -33,11 +32,8 @@ public extension RouterNodeDefineAble {
 // MARK: Imp
 public protocol RouterNodeImpAble: AnyObject {
     associatedtype NodeDefineType: RouterNodeDefineAble
-
     static func regist()
-
     static func regist(define: NodeDefineType.Type)
-    
     static func createDestination(param: NodeDefineType.ParamType?) -> NodeDefineType.ReturnType?
 }
 
