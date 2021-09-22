@@ -10,6 +10,7 @@
 #endif
 #endif
 
+#import "SearchRouterRegister.h"
 
 FOUNDATION_EXPORT double SearchKitVersionNumber;
 FOUNDATION_EXPORT const unsigned char SearchKitVersionString[];

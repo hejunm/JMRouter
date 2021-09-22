@@ -27,6 +27,14 @@ public extension RouterNodeDefineAble {
     static var urlPattern: String? {
         return nil
     }
+    
+    static func createService(paramFactory: ((Self.ParamType)->())?) -> Self.ReturnType? {
+        return Router.share.perform(define: Self.self, paramFactory: paramFactory)
+    }
+    
+    static func openPage(from: PageRoutingType? = nil) -> Bool where ReturnType : UIViewController {
+        return true
+    }
 }
 
 // MARK: Imp

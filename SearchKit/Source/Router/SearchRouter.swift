@@ -33,3 +33,17 @@ public class SearchQueryRouter: NSObject, RouterNodeImpAble {
         param?.source = dict["source"] as? String
     }
 }
+
+@objc(SearchKitSearchResultRouter)
+public class SearchResultRouter: NSObject, RouterNodeImpAble {
+    public typealias NodeDefineType = RouterNodeDefineSearchResult
+    
+    @objc
+    public static func regist() {
+        self.regist(define: RouterNodeDefineSearchResult.self)
+    }
+    
+    public static func createDestination(param: RouterNodeParamBase?) -> String? {
+        return "hello"
+    }
+}

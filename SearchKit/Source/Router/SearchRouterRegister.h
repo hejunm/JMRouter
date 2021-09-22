@@ -11,6 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 RouterNodeRegist(SearchKitSearchQueryRouter)
+RouterNodeRegist(SearchKitSearchResultRouter)
 
 @interface SearchRouterRegister : NSObject
 

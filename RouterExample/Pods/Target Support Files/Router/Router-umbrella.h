@@ -10,6 +10,7 @@
 #endif
 #endif
 
+#import "RouterRuntime.h"
 
 FOUNDATION_EXPORT double RouterVersionNumber;
 FOUNDATION_EXPORT const unsigned char RouterVersionString[];

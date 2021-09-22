@@ -64,31 +64,26 @@ extension Router {
         let jlRouter = scheme.isEmpty ? JLRoutes.global() : JLRoutes.init(forScheme: scheme)
         jlRouter.addRoute(urlPattern) { [weak self] params in
             guard let self = self else { return false }
-            let factoryBlock = { (param: [String: Any]?) -> NodeImpType.NodeDefineType.ReturnType? in
-                let paramModel = NodeImpType.NodeDefineType.ParamType()
-                paramModel.paramDic = param
-                return imp.createDestination(param: paramModel)
-            }
-            self.jlRouterLastMatchResult = JLRouterLastMatchResult(params: params, factory: factoryBlock)
+            let paramModel = NodeImpType.NodeDefineType.ParamType()
+            paramModel.paramDic = params
+            let destination = imp.createDestination(param: paramModel)
+            self.jlRouterLastMatchResult = JLRouterLastMatchResult(urlParamDic:params, paramModel: paramModel, destination: destination)
             return true
         }
         print("zhizi Router regist urlPattern: \(urlPattern) imp:\(imp)")
     }
 
-    public func perform(url: URL?) -> Any? {
+    private func perform(url: URL?) -> JLRouterLastMatchResult? {
         guard let url = url else { return nil }
         self.jlRouterLastMatchResult = nil
-        defer {
-            self.jlRouterLastMatchResult = nil
-        }
+        defer { self.jlRouterLastMatchResult = nil }
         let routerResult = JLRoutes.routeURL(url)
         guard routerResult,
               let jlRouterLastMatchResult = self.jlRouterLastMatchResult,
-              let matchedURL = jlRouterLastMatchResult.params?[JLRouteURLKey] as? NSURL,
-              matchedURL.absoluteString == url.absoluteString else {
+              let matchedURL = jlRouterLastMatchResult.urlParamDic?[JLRouteURLKey] as? NSURL, matchedURL.absoluteString == url.absoluteString else {
             return nil
         }
-        return jlRouterLastMatchResult.factory?(jlRouterLastMatchResult.params)
+        return jlRouterLastMatchResult
     }
 
     private static func getSchemeAndURLPattern(origin: String) -> (scheme: String, urlPattern: String) {
@@ -108,6 +103,35 @@ extension Router {
 
 
 struct JLRouterLastMatchResult {
-    var params: [String: Any]?
-    var factory: (([String: Any]?) -> Any?)?
+    var urlParamDic: [String: Any]?
+    var paramModel: RouterNodeParamBase?
+    var destination: Any?
+}
+
+
+// MARK: Navigation
+
+
+extension Router {
+    
+    func routeTo(url: URL, transitionType: PageRoutingType? = nil) {
+        guard let matchResult = self.perform(url: url) else {
+            return
+        }
+        guard let toVC = matchResult.destination as? UIViewController else {
+            return
+        }
+        
+        if let transitionType = transitionType {
+            
+        } else {
+            
+        }
+    }
+    
+    /**
+     页面跳转
+     1, 获取目标页面， 判断类型
+     2，获取
+     */
 }

@@ -18,3 +18,10 @@ public class RouterNodeDefineSearchQuery: RouterNodeDefineAble {
     public typealias ReturnType = UIViewController
     public static let urlPattern: String? = "/search/query"
 }
+
+
+public class RouterNodeDefineSearchResult: RouterNodeDefineAble {
+    public typealias ParamType = RouterNodeParamBase
+    public typealias ReturnType = String
+    public static let urlPattern: String? = "/search/result"
+}

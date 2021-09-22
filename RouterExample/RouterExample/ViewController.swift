@@ -20,12 +20,15 @@ class ViewController: UIViewController {
 //        let vc = Router.share.perform(define: RouterNodeDefineSearchQuery.self) { param in
 //            param.source = "zhizi"
 //        }
-//        if let vc = vc as? UIViewController {
-//            self.navigationController?.pushViewController(vc, animated: true)
-//        }
-
-        let vc = Router.share.perform(url: URL(string: "zhizi://search/query?source=zhizi"))
-        if let vc = vc as? UIViewController {
+//        let vc = Router.share.perform(url: URL(string: "zhizi://search/query?source=zhizi"))
+        routerByNodeDefine()
+    }
+    
+    func routerByNodeDefine() {
+        let vc = RouterNodeDefineSearchQuery.createService { param in
+            param.source = "routerByNodeDefine"
+        }
+        if let vc = vc {
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }
