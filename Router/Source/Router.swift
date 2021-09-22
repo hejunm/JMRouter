@@ -30,7 +30,7 @@ public class Router: NSObject {
 // MARK:  Router By Code
 extension Router {
 
-    private func regist<NodeImpType: RouterNodeImpAble>(nodeID: String, imp: NodeImpType.Type) {
+    func regist<NodeImpType: RouterNodeImpAble>(nodeID: String, imp: NodeImpType.Type) {
         guard !nodeID.isEmpty else {
             return
         }
@@ -45,7 +45,7 @@ extension Router {
         print("zhizi Router regist NodeID: \(nodeID) imp:\(imp)")
     }
 
-    public func perform<NodeDefineType: RouterNodeDefineAble>(define: NodeDefineType.Type, paramFactory: ((NodeDefineType.ParamType)->())?) -> NodeDefineType.ReturnType? {
+    func perform<NodeDefineType: RouterNodeDefineAble>(define: NodeDefineType.Type, paramFactory: ((NodeDefineType.ParamType)->())?) -> NodeDefineType.ReturnType? {
         guard let destinationFactoryBlock = id2ImpMap[define.identifier] else {
             return nil
         }
@@ -58,7 +58,7 @@ extension Router {
 // MARK: Router By deeplink
 extension Router {
 
-    private func regist<NodeImpType: RouterNodeImpAble>(urlPattern: String, imp: NodeImpType.Type) {
+    func regist<NodeImpType: RouterNodeImpAble>(urlPattern: String, imp: NodeImpType.Type) {
         let (scheme, urlPattern) = Router.getSchemeAndURLPattern(origin: urlPattern)
         guard !urlPattern.isEmpty else { return }
         let jlRouter = scheme.isEmpty ? JLRoutes.global() : JLRoutes.init(forScheme: scheme)
@@ -73,7 +73,7 @@ extension Router {
         print("zhizi Router regist urlPattern: \(urlPattern) imp:\(imp)")
     }
 
-    private func perform(url: URL?) -> JLRouterLastMatchResult? {
+    func perform(url: URL?) -> JLRouterLastMatchResult? {
         guard let url = url else { return nil }
         self.jlRouterLastMatchResult = nil
         defer { self.jlRouterLastMatchResult = nil }
@@ -101,37 +101,8 @@ extension Router {
     }
 }
 
-
 struct JLRouterLastMatchResult {
     var urlParamDic: [String: Any]?
     var paramModel: RouterNodeParamBase?
     var destination: Any?
-}
-
-
-// MARK: Navigation
-
-
-extension Router {
-    
-    func routeTo(url: URL, transitionType: PageRoutingType? = nil) {
-        guard let matchResult = self.perform(url: url) else {
-            return
-        }
-        guard let toVC = matchResult.destination as? UIViewController else {
-            return
-        }
-        
-        if let transitionType = transitionType {
-            
-        } else {
-            
-        }
-    }
-    
-    /**
-     页面跳转
-     1, 获取目标页面， 判断类型
-     2，获取
-     */
 }

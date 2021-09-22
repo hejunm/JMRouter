@@ -32,8 +32,12 @@ public extension RouterNodeDefineAble {
         return Router.share.perform(define: Self.self, paramFactory: paramFactory)
     }
     
-    static func openPage(from: PageRoutingType? = nil) -> Bool where ReturnType : UIViewController {
-        return true
+    static func openPage(paramFactory: ((Self.ParamType)->())?, type: PageRoutingType? = nil) -> Bool where ReturnType: UIViewController {
+        guard let toVC = Router.share.perform(define: Self.self, paramFactory: paramFactory) else {
+            return false
+        }
+        let result = PageRoutingType.routerTo(vc: toVC, type: type)
+        return result
     }
 }
 
