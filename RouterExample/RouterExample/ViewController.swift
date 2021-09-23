@@ -17,11 +17,8 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.green
 
-//        let vc = Router.share.perform(define: RouterNodeDefineSearchQuery.self) { param in
-//            param.source = "zhizi"
-//        }
-//        let vc = Router.share.perform(url: URL(string: "zhizi://search/query?source=zhizi"))
         routerByNodeDefine()
+        routerByURL()
     }
     
     func routerByNodeDefine() {
@@ -31,6 +28,10 @@ class ViewController: UIViewController {
         if let vc = vc {
             self.navigationController?.pushViewController(vc, animated: true)
         }
+    }
+    
+    func routerByURL() {
+        Router.routeTo(url: URL(string: "zhizi://search/query?source=routerByURL"))
     }
 }
 
