@@ -7,10 +7,43 @@
 
 import UIKit
 
+public extension RouterNodeDefineAble {
+    static func createService(paramFactory: ((Self.ParamType)->())?) -> Self.ReturnType? {
+        return Router.share.perform(define: Self.self, paramFactory: paramFactory)
+    }
+    
+    static func openPage(paramFactory: ((Self.ParamType)->())?, type: PageRoutingType? = nil) -> Bool where ReturnType: UIViewController {
+        guard let toVC = Router.share.perform(define: Self.self, paramFactory: paramFactory) else {
+            return false
+        }
+        let result = RoutingAction.routerTo(vc: toVC, type: type)
+        return result
+    }
+}
+
+extension Router {
+    @discardableResult
+    public static func openPage(url: URL?, type: PageRoutingType? = nil) -> Bool {
+        guard let url = url else {
+            return false
+        }
+        guard let matchResult = Router.share.perform(url: url) else {
+            return false
+        }
+        guard let toVC = matchResult.destination as? UIViewController else {
+            return false
+        }
+        let result = RoutingAction.routerTo(vc: toVC, type: type)
+        return result
+    }
+}
+
 public enum PageRoutingType {
     case push(UINavigationController, Bool)
     case present(UIViewController, Bool)
+}
 
+fileprivate enum RoutingAction {
     static func routerTo(vc: UIViewController, type: PageRoutingType?) -> Bool {
         if let type = type {
             switch type {
@@ -48,23 +81,5 @@ public enum PageRoutingType {
         } else {
             return fromViewController
         }
-    }
-}
-
-extension Router {
-    
-    @discardableResult
-    public static func routeTo(url: URL?, type: PageRoutingType? = nil) -> Bool {
-        guard let url = url else {
-            return false
-        }
-        guard let matchResult = Router.share.perform(url: url) else {
-            return false
-        }
-        guard let toVC = matchResult.destination as? UIViewController else {
-            return false
-        }
-        let result = PageRoutingType.routerTo(vc: toVC, type: type)
-        return result
     }
 }

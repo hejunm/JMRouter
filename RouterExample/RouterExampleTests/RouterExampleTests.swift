@@ -2,8 +2,8 @@
 //  RouterExampleTests.swift
 //  RouterExampleTests
 //
-//  Created by wulixiwa on 2021/7/2.
-//  Copyright © 2021 wulixiwa. All rights reserved.
+//  Created by 智子 on 2021/7/2.
+//  Copyright © 2021 智子. All rights reserved.
 //
 
 import XCTest

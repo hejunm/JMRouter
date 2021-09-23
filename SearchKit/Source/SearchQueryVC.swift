@@ -2,7 +2,7 @@
 //  SearchQueryVC.swift
 //  SearchKit
 //
-//  Created by wulixiwa on 2021/9/8.
+//  Created by 智子 on 2021/9/8.
 //
 
 import UIKit

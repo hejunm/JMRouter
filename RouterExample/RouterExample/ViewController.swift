@@ -2,8 +2,8 @@
 //  ViewController.swift
 //  RouterExample
 //
-//  Created by wulixiwa on 2021/7/2.
-//  Copyright © 2021 wulixiwa. All rights reserved.
+//  Created by 智子 on 2021/7/2.
+//  Copyright © 2021 智子. All rights reserved.
 //
 
 import UIKit
@@ -31,7 +31,7 @@ class ViewController: UIViewController {
     }
     
     func routerByURL() {
-        Router.routeTo(url: URL(string: "zhizi://search/query?source=routerByURL"))
+        Router.openPage(url: URL(string: "zhizi://search/query?source=routerByURL"))
     }
 }
 

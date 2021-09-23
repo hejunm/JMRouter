@@ -2,8 +2,8 @@
 //  Router.swift
 //  RouterExample
 //
-//  Created by wulixiwa on 2021/7/2.
-//  Copyright © 2021 wulixiwa. All rights reserved.
+//  Created by 智子 on 2021/7/2.
+//  Copyright © 2021 智子. All rights reserved.
 //
 
 import UIKit
@@ -86,7 +86,7 @@ extension Router {
         return jlRouterLastMatchResult
     }
 
-    private static func getSchemeAndURLPattern(origin: String) -> (scheme: String, urlPattern: String) {
+    static func getSchemeAndURLPattern(origin: String) -> (scheme: String, urlPattern: String) {
         if origin.contains("://") {
             let separatedResult = origin.components(separatedBy: "://")
             if separatedResult.count == 2 {
