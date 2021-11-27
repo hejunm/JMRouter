@@ -10,14 +10,11 @@ import UIKit
 import JLRoutes
 
 public class Router: NSObject {
+    typealias DestinationFactoryBlock = (RouterNodeParamBase) -> Any?
+    var id2ImpMap = [String: DestinationFactoryBlock]()
+    var jlRouterLastMatchResult: JLRouterLastMatchResult?
 
     public static let share = Router()
-
-    typealias DestinationFactoryBlock = (RouterNodeParamBase) -> Any?
-    
-    var id2ImpMap = [String: DestinationFactoryBlock]()
-
-    var jlRouterLastMatchResult: JLRouterLastMatchResult?
 
     public func regist<NodeDefineType, NodeImpType: RouterNodeImpAble>(define: NodeDefineType.Type, imp: NodeImpType.Type) where NodeDefineType == NodeImpType.NodeDefineType {
         regist(nodeID: define.identifier, imp: imp)
@@ -98,6 +95,21 @@ extension Router {
         } else {
             return ("", origin)
         }
+    }
+
+    @discardableResult
+    public func openPage(url: URL?, type: PageRoutingType? = nil) -> Bool {
+        guard let url = url else {
+            return false
+        }
+        guard let matchResult = perform(url: url) else {
+            return false
+        }
+        guard let toVC = matchResult.destination as? UIViewController else {
+            return false
+        }
+        let result = RoutingAction.routerTo(vc: toVC, type: type)
+        return result
     }
 }
 

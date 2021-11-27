@@ -31,7 +31,7 @@ class ViewController: UIViewController {
     }
     
     func routerByURL() {
-        Router.openPage(url: URL(string: "zhizi://search/query?source=routerByURL"))
+        Router.share.openPage(url: URL(string: "zhizi://search/query?source=routerByURL"))
     }
 }
 

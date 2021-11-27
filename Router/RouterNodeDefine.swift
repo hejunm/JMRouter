@@ -21,7 +21,21 @@ public extension RouterNodeDefineAble {
     }
 }
 
-// MARK: Base param
+public extension RouterNodeDefineAble {
+    static func createService(paramFactory: ((Self.ParamType)->())?) -> Self.ReturnType? {
+        return Router.share.perform(define: Self.self, paramFactory: paramFactory)
+    }
+
+    static func openPage(paramFactory: ((Self.ParamType)->())?, type: PageRoutingType? = nil) -> Bool where ReturnType: UIViewController {
+        guard let toVC = Router.share.perform(define: Self.self, paramFactory: paramFactory) else {
+            return false
+        }
+        let result = RoutingAction.routerTo(vc: toVC, type: type)
+        return result
+    }
+}
+
+// MARK: RouterNodeParamBase --
 open class RouterNodeParamBase {
     public var paramDic: [String: Any]?
     required public init() {}
