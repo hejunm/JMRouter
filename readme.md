@@ -32,7 +32,7 @@ public class RouterNodeDefineModuleAPage1: RouterNodeDefineAble {
 }
 ```
 
-### Imp Router Node
+### Implement Router Node
 
 ```
 public protocol RouterNodeImpAble: NSObject {
@@ -70,7 +70,7 @@ RouterNodeDefineModuleAPage1.openPage(paramFactory: { param in
     param.paramDic = ["source": "Module2"]
 }, type: nil)
 
-/// Type2
+/// Type 2
 if let vc = RouterNodeDefineModuleAPage1.createDestination(paramFactory: { param in 
     param.paramDic = ["source": "Module2"] }) {
     self.navigationController?.pushViewController(vc, animated: true)
