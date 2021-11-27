@@ -22,7 +22,7 @@ public extension RouterNodeDefineAble {
 }
 
 public extension RouterNodeDefineAble {
-    static func createService(paramFactory: ((Self.ParamType)->())?) -> Self.ReturnType? {
+    static func createDestination(paramFactory: ((Self.ParamType)->())?) -> Self.ReturnType? {
         return Router.share.perform(define: Self.self, paramFactory: paramFactory)
     }
 

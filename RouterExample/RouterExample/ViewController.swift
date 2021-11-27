@@ -23,10 +23,7 @@ class ViewController: UIViewController {
     }
     
     func routerByNodeDefine() {
-        let vc = RouterNodeDefineSearchQuery.createService { param in
-            param.source = "routerByNodeDefine"
-        }
-        if let vc = vc {
+        if let vc = RouterNodeDefineSearchQuery.createDestination(paramFactory: { param in param.source = "routerByNodeDefine" }) {
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }
