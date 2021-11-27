@@ -17,7 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 #define RouterDATA(sectname) __attribute((used, section("__DATA,"#sectname" ")))
 
 #define RouterNodeRegist(name) \
-char * k##name##_router_node RouterDATA(RouterNodeImp) = ""#name"";
+char* k##name##_router_node RouterDATA(RouterNodeImp) = ""#name"";
 
 @interface RouterRuntime : NSObject
 @end

@@ -14,9 +14,9 @@
 #import <objc/message.h>
 #include <mach-o/ldsyms.h>
 
-NSArray<NSString *>* BHReadConfiguration(char *sectionName,const struct mach_header *mhp);
+NSArray<NSString *>* RouterReadConfiguration(char *sectionName,const struct mach_header *mhp);
 static void dyld_callback(const struct mach_header *mhp, intptr_t vmaddr_slide) {
-    NSArray *mods = BHReadConfiguration(RouterNodeImpSectName, mhp);
+    NSArray *mods = RouterReadConfiguration(RouterNodeImpSectName, mhp);
     for (NSString *modName in mods) {
         Class cls;
         if (modName) {
@@ -40,7 +40,7 @@ __attribute__((constructor)) void initProphet() {
     _dyld_register_func_for_add_image(dyld_callback);
 }
 
-NSArray<NSString *>* BHReadConfiguration(char *sectionName,const struct mach_header *mhp)
+NSArray<NSString *>* RouterReadConfiguration(char *sectionName,const struct mach_header *mhp)
 {
     NSMutableArray *configs = [NSMutableArray array];
     unsigned long size = 0;
