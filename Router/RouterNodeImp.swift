@@ -14,7 +14,7 @@ public protocol RouterNodeImpAble: NSObject {
 }
 
 extension RouterNodeImpAble {
-    public static func regist(define: NodeDefineType.Type) {
-        Router.share.regist(define: define, imp: self)
+    public static func registNodeDefine() {
+        Router.share.regist(define: NodeDefineType.self, imp: self)
     }
 }

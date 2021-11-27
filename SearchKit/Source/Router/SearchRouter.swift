@@ -15,7 +15,7 @@ public class SearchQueryRouter: NSObject, RouterNodeImpAble {
 
     @objc
     public static func regist() {
-        self.regist(define: RouterNodeDefineSearchQuery.self)
+        self.registNodeDefine()
     }
 
     public static func createDestination(param: RouterNodeParamSearchQuery?) -> UIViewController? {
@@ -40,7 +40,7 @@ public class SearchResultRouter: NSObject, RouterNodeImpAble {
     
     @objc
     public static func regist() {
-        self.regist(define: RouterNodeDefineSearchResult.self)
+        self.registNodeDefine()
     }
     
     public static func createDestination(param: RouterNodeParamBase?) -> String? {
