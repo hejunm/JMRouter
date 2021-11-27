@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "85C816F654CE716C37DC3E303B4C6427"
-               BuildableName = "Pods_RouterExample.framework"
-               BlueprintName = "Pods-RouterExample"
+               BlueprintIdentifier = "86930FD2B0E8041F30F9190062542430"
+               BuildableName = "SearchKit.framework"
+               BlueprintName = "SearchKit"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
