@@ -23,6 +23,8 @@
 		3F4BA701FB71EC05034BAFD7BE42D6A3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34882B227903B2938127C32393F5D20F /* Foundation.framework */; };
 		4317F03A36E76F7AC1D8BB6F56E2EBC7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34882B227903B2938127C32393F5D20F /* Foundation.framework */; };
 		486E2BEDEBC71CE730415B0F4F31A7D8 /* RouterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2ABA59A442489837B5A788C2E7388C /* RouterService.swift */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		583D9A2C27520AF800C4B5BA /* RouterNodeDefine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 583D9A2B27520AF800C4B5BA /* RouterNodeDefine.swift */; };
+		583D9A2E27520B1900C4B5BA /* RouterNodeImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 583D9A2D27520B1900C4B5BA /* RouterNodeImp.swift */; };
 		6560749608744DB2C748C452FADCBBF1 /* Pods-RouterExample-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CE6DD3ECB7CB1600C679EB75D45AF7 /* Pods-RouterExample-dummy.m */; };
 		68A522AB7EDFBBE2C81D4DB6B85482A3 /* RouterRuntime.h in Headers */ = {isa = PBXBuildFile; fileRef = 1D11A80664E69488CAE5503C04A2BDF6 /* RouterRuntime.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6ADEB118EC03247C2BC75E13FB3CC645 /* JLRRouteRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 8D0985B86ED40241BCFEA42ACE22A40D /* JLRRouteRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -42,7 +44,6 @@
 		B82A5D68D986C31F2C8DD8F32567F95E /* JLRoutes-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B086F46E17730509D8BD7CB12FAECAC0 /* JLRoutes-dummy.m */; };
 		B9731420FBCF95F81CE1573802DF0A01 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A55D18F1B5DEA38757A473FABD908D9 /* UIKit.framework */; };
 		BC495B8AEBA0515F319A106AC1A3B6C9 /* JLRRouteResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 0886D3FBF0BC6FA054F3E5DD21E9EC7E /* JLRRouteResponse.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CF16122DC15038CD06D0647CDBB8847A /* RouterNodeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6E90B6EA6302DCCA7E4EA98A2EE5ED /* RouterNodeProtocol.swift */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		DCD235161216D32FB8CE63FE49DF3A59 /* JLRRouteDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = CE14E3FDB0E9B5F9227E7E3AC8EF6E8B /* JLRRouteDefinition.m */; };
 		E4EF7CEE0CC54BB6F98D1C0D745520E3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34882B227903B2938127C32393F5D20F /* Foundation.framework */; };
 		E5A6D5D452729FE527F0DC4AF9244ADA /* RouterNodeDefinition.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 241C65D191DA22DD0C2E113739428EEC /* RouterNodeDefinition.framework */; };
@@ -115,7 +116,6 @@
 		0D7B133BA4F490106F7A046AE781A8F4 /* Router-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Router-prefix.pch"; sourceTree = "<group>"; };
 		1475111BC44D4037894F0CB2C72BC637 /* RouterNodeDefinition.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = RouterNodeDefinition.modulemap; sourceTree = "<group>"; };
 		1891371BE2614A7BB24FFE3559BFC7D7 /* Pods_RouterExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RouterExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		1C6E90B6EA6302DCCA7E4EA98A2EE5ED /* RouterNodeProtocol.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RouterNodeProtocol.swift; path = Source/RouterNodeProtocol.swift; sourceTree = "<group>"; };
 		1D11A80664E69488CAE5503C04A2BDF6 /* RouterRuntime.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RouterRuntime.h; path = Source/RouterRuntime.h; sourceTree = "<group>"; };
 		1EE0291E6C6DE98909BD8AB03C9F94A5 /* RouterNodeDefinition.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = RouterNodeDefinition.xcconfig; sourceTree = "<group>"; };
 		1F5C6D51E84E8E2F7A4EF4257FF36516 /* JLRoutes-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "JLRoutes-prefix.pch"; sourceTree = "<group>"; };
@@ -134,6 +134,8 @@
 		4ED65C205143FF9F07DDD021BE744593 /* JLRoutes.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JLRoutes.m; path = JLRoutes/JLRoutes.m; sourceTree = "<group>"; };
 		4F1191211B5CE0EE1FE93E7CA91413A5 /* JLRRouteResponse.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JLRRouteResponse.m; path = JLRoutes/JLRRouteResponse.m; sourceTree = "<group>"; };
 		50FFBAE87DAAA5D19C6D04413ED5E6D3 /* JLRoutes.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = JLRoutes.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		583D9A2B27520AF800C4B5BA /* RouterNodeDefine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterNodeDefine.swift; sourceTree = "<group>"; };
+		583D9A2D27520B1900C4B5BA /* RouterNodeImp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterNodeImp.swift; sourceTree = "<group>"; };
 		59A31A2CF6F43F1F105FF798D9F952A2 /* JLRParsingUtilities.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JLRParsingUtilities.h; path = JLRoutes/JLRParsingUtilities.h; sourceTree = "<group>"; };
 		5B765FCC13F4A65D292F904A2104B13A /* JLRoutes-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "JLRoutes-umbrella.h"; sourceTree = "<group>"; };
 		5E33BABD34C0A4735713108213685498 /* Router.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Router.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -280,7 +282,8 @@
 			isa = PBXGroup;
 			children = (
 				0092633C2060EBCD1F423252645BD9EF /* Router.swift */,
-				1C6E90B6EA6302DCCA7E4EA98A2EE5ED /* RouterNodeProtocol.swift */,
+				583D9A2B27520AF800C4B5BA /* RouterNodeDefine.swift */,
+				583D9A2D27520B1900C4B5BA /* RouterNodeImp.swift */,
 				7B2ABA59A442489837B5A788C2E7388C /* RouterService.swift */,
 				1D11A80664E69488CAE5503C04A2BDF6 /* RouterRuntime.h */,
 				430B26231719D5DC547005A17E5ABDE9 /* RouterRuntime.m */,
@@ -719,8 +722,9 @@
 			files = (
 				F88653CAFE7B92AB6623E493CBC19E42 /* Router-dummy.m in Sources */,
 				92C1E86596AB645A9715BB18D213EEC2 /* Router.swift in Sources */,
-				CF16122DC15038CD06D0647CDBB8847A /* RouterNodeProtocol.swift in Sources */,
+				583D9A2C27520AF800C4B5BA /* RouterNodeDefine.swift in Sources */,
 				486E2BEDEBC71CE730415B0F4F31A7D8 /* RouterService.swift in Sources */,
+				583D9A2E27520B1900C4B5BA /* RouterNodeImp.swift in Sources */,
 				0414249D474566653CFEAB51B43C8488 /* RouterRuntime.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
