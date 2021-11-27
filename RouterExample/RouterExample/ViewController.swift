@@ -18,6 +18,7 @@ class ViewController: UIViewController {
         self.view.backgroundColor = UIColor.green
 
         routerByNodeDefine()
+        routerByNodeDefine2()
         routerByURL()
     }
     
@@ -29,7 +30,13 @@ class ViewController: UIViewController {
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }
-    
+
+    func routerByNodeDefine2() {
+        _ = RouterNodeDefineSearchQuery.openPage(paramFactory: { param in
+            param.source = "routerByNodeDefine2"
+        }, type: nil)
+    }
+
     func routerByURL() {
         Router.share.openPage(url: URL(string: "zhizi://search/query?source=routerByURL"))
     }
