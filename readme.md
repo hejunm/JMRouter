@@ -10,7 +10,8 @@ Router is an iOS routing SDK used to implement communication between modules. Ma
 
 ## Start
 ### Define Router Node
-```
+
+```swift
 open class RouterNodeParamBase {
     public var paramDic: [String: Any]?
     required public init() {}
@@ -34,7 +35,7 @@ public class RouterNodeDefineModuleAPage1: RouterNodeDefineAble {
 
 ### Implement Router Node
 
-```
+```swift
 public protocol RouterNodeImpAble: NSObject {
     associatedtype NodeDefineType: RouterNodeDefineAble
     static func regist()
