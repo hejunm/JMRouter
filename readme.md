@@ -64,6 +64,7 @@ RouterNodeRegist(ModuleAPage1Router)
 ```
 
 ### Router To ModuleAPage1 from other Module
+
 ```swift
 /// In Module2
 /// Type 1
